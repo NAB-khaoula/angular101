@@ -46,14 +46,15 @@ export class CoursesComponent implements OnInit {
   ];
 
   selectedCourse: Course = emptyCourse;
-  currentCourse: Course = emptyCourse;
+  originalTitle: String = '';
 
   constructor() {}
 
   ngOnInit(): void {}
 
   selectCourse(course: Course) {
-    this.selectedCourse = course;
+    this.selectedCourse = { ...course };
+    this.originalTitle = course.title
   }
   deleteCourse(courseId: string) {
     if (this.selectedCourse && this.selectedCourse.id === courseId)

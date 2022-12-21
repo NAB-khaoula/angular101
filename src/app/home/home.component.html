@@ -1,3 +1,15 @@
-<button (click)="changeFromChild()">Change from child</button>
-<br />
-<p>{{parentData}}</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Course Outline </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- LESSON LIST -->
+    <mat-list>
+        <mat-list-item *ngFor="let courseLesson of courseLessons" (click)="selectCourseLesson(courseLesson)">
+            <h3 matLine>{{courseLesson.title}}</h3>
+        </mat-list-item>
+    </mat-list>
+    <hr>
+    <p *ngIf="selectedCourseLesson">{{selectedCourseLesson | json }}</p>
+  </mat-card-content>
+</mat-card>

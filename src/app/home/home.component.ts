@@ -1,28 +1,28 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: `home`,
-  templateUrl: `home.component.html`,
-  styleUrls: [`home.component.scss`],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, OnChanges {
-  ngOnInit(): void {
-    console.log(`child: ngOnInit is fired`);
-  }
+export class HomeComponent implements OnInit {
+  courseLessons = [
+    { title: 'Hello Angular' },
+    { title: 'Component Fundamentals' },
+    { title: 'Template Driven Forms' },
+    { title: 'Angular Services' },
+    { title: 'Server Communication' },
+    { title: 'Component Driven Architecture' },
+    { title: 'Angular Routing' },
+    { title: 'Unit Testing Fundamentals' },
+  ];
 
-  @Input() parentData: any;
+  selectedCourseLesson: any = null;
+  constructor() {}
 
-  changeFromChild(): void {
-    this.parentData -= 1;
-  }
+  ngOnInit() {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(`child: ngOnChange is fired`, changes);
+  selectCourseLesson(courseLesson: any){
+    this.selectedCourseLesson = courseLesson;
   }
 }

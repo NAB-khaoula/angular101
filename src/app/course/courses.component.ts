@@ -65,6 +65,6 @@ export class CoursesComponent implements OnInit {
   }
 
   saveCourse(selectedCourse) {
-    console.log('SAVE COURSE', selectedCourse)
+    console.log('SAVE COURSE', selectedCourse);
   }
 }

@@ -1,3 +1,4 @@
+import { CoursesService } from './../common/services/courses.service';
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../common/models/course';
 
@@ -20,37 +21,21 @@ export class CoursesComponent implements OnInit {
   // select a course
   // render selected course
 
-  courses: Course[] = [
-    {
-      id: '1',
-      title: 'Angular 13 Fundamentals',
-      description: 'Learn the fundamentals of Angular 13',
-      percentComplete: 46,
-      favorite: true,
-    },
-    {
-      id: '2',
-      title: 'JavaScript The HARDEST PARTS EVER!',
-      description: 'Learn the JavaScript like a pro! with will',
-      percentComplete: 70,
-      favorite: true,
-    },
-    {
-      id: '3',
-      title: 'How to be a better Entrepreneur!',
-      description:
-        'The best NOT shortcut to be a good entrepreneur in a small market',
-      percentComplete: 10,
-      favorite: false,
-    },
-  ];
-
+  courses: Course[];
   selectedCourse: Course = emptyCourse;
   originalTitle: String = '';
 
-  constructor() {}
+  constructor(private coursesService: CoursesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.courses = this.coursesService.courses
+    // this.coursesService.all().subscribe((result: any) => this.courses = result) Delegation
+    this.fetchCourses();
+  }
+
+  fetchCourses() {
+    this.coursesService.all().subscribe((result: any) => this.courses = result);
+  }
 
   selectCourse(course: Course) {
     this.selectedCourse = { ...course };
@@ -65,6 +50,21 @@ export class CoursesComponent implements OnInit {
   }
 
   saveCourse(selectedCourse) {
+    if (selectedCourse.id) {
+      this.updateCourse(selectedCourse);
+    }
+    else {
+      this.createCourse(selectedCourse)
+    }
     console.log('SAVE COURSE', selectedCourse);
+  }
+
+
+  createCourse(course) {
+    this.coursesService.create(course).subscribe(() => this.fetchCourses());
+  }
+
+  updateCourse(course) {
+    this.coursesService.update(course).subscribe(() => this.fetchCourses())
   }
 }

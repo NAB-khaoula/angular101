@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'about',
     templateUrl: './about.component.html',
-    styleUrls: ['./about.component.css']
+    styleUrls: ['./about.component.scss']
     
 })
-export class About{
-    
+export class AboutComponent{
+    @Output() greeter = new EventEmitter();
+
+    greet() {
+        this.greeter.emit('Greeting from your child')
+    }
 }

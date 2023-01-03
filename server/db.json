@@ -34,6 +34,27 @@
       "description": "something",
       "percentComplete": 10,
       "favorite": true
+    },
+    {
+      "id": "N0YhpQo",
+      "title": "test",
+      "description": "test",
+      "percentComplete": 55,
+      "favorite": false
+    },
+    {
+      "id": "p3VvJyO",
+      "title": "fsdsad",
+      "description": "sdfa",
+      "percentComplete": 8,
+      "favorite": true
+    },
+    {
+      "id": "3wjidSz",
+      "title": "testing course detail",
+      "description": "sdfsadgfsfdsd",
+      "percentComplete": 21,
+      "favorite": true
     }
   ],
   "lessons": [

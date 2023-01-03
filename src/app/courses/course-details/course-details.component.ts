@@ -1,3 +1,4 @@
+import { Course } from './../../common/models/course';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -5,21 +6,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './course-details.component.html',
   styleUrls: ['./course-details.component.scss']
 })
-export class CourseDetailsComponent implements OnInit {
+export class CourseDetailsComponent  {
+  currentCourse: Course;
+  originalTitle: string = '';
+  @Output() saved = new EventEmitter();
+  @Output() cancelled = new EventEmitter();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  @Input() set course(value) {
+    if (!value) return
+    this.currentCourse = { ...value }
+    this.originalTitle = this.currentCourse.title;
   }
 
-  @Input() selectedCourse;
-  @Output() savedCourse = new EventEmitter();
-  @Output() resetedCourse = new EventEmitter(false);
-
-  saveCourse(selectedCourse) {
-    this.savedCourse.emit(selectedCourse);
-  }
-  reset() {
-    this.resetedCourse.emit(true);
-  }
 }

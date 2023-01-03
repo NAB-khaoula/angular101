@@ -1,6 +1,7 @@
 import { CoursesService } from '../common/services/courses.service';
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../common/models/course';
+import { Observable } from 'rxjs';
 
 const emptyCourse: Course = {
   id: null,
@@ -21,9 +22,8 @@ export class CoursesComponent implements OnInit {
   // select a course
   // render selected course
   greeting: string = 'here is the parent';
-  courses: Course[];
+  courses$: Observable<Course[]>;
   selectedCourse: Course = emptyCourse;
-  originalTitle: String = '';
 
 
   constructor(private coursesService: CoursesService) {}
@@ -33,17 +33,16 @@ export class CoursesComponent implements OnInit {
   }
   ngOnInit(): void {
     // this.courses = this.coursesService.courses
-    // this.coursesService.all().subscribe((result: any) => this.courses = result) Delegation
+    // this.coursesService.all().subscribe((result: any) => this.courses = result) ===> Delegation
     this.fetchCourses();
   }
 
   fetchCourses() {
-    this.coursesService.all().subscribe((result: any) => this.courses = result);
+    this.courses$ = this.coursesService.all();
   }
 
   selectCourse(course: Course) {
     this.selectedCourse = { ...course };
-    this.originalTitle = course.title
   }
   deleteCourse(courseId: string) {
     if (this.selectedCourse && this.selectedCourse.id === courseId)

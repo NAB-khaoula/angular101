@@ -6,14 +6,14 @@
     <mat-list>
       <mat-list-item
         *ngFor="let course of courses"
-        (click)="selectCourse(course)"
+        (click)="selected.emit(course)"
       >
         <h3 matLine>{{ course.title | titlecase }}</h3>
         <p matLine>{{ course.description }}</p>
         <button
           mat-icon-button
           color="warn"
-          (click)="deleteCourse(course.id); $event.stopImmediatePropagation()"
+          (click)="deleted.emit(course.id); $event.stopImmediatePropagation()"
         >
           <mat-icon>Delete</mat-icon>
         </button>

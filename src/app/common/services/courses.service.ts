@@ -15,7 +15,7 @@ export class CoursesService {
 
   all()
   {
-    return this.http.get(this.getUrl())
+    return this.http.get<Course[]>(this.getUrl())
   }
 
   find(id) {

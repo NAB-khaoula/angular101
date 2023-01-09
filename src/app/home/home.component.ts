@@ -1,3 +1,5 @@
+import { Lesson } from './../common/models/lessons';
+import { Observable } from 'rxjs';
 import { LessonsService } from './../common/services/lessons.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  lessons$
+  lessons$: Observable<Lesson[]>
   selectedCourseLesson: any = null;
   constructor(private lessonsService: LessonsService) {}
 
@@ -20,7 +22,5 @@ export class HomeComponent implements OnInit {
   }
   fetchLessons() {
     this.lessons$ = this.lessonsService.all()
-
-    console.log('jbna lessons b3da', this.lessons$);
   }
 }

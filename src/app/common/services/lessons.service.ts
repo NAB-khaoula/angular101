@@ -21,7 +21,7 @@ export class LessonsService {
     return `${this.getUrl()}/${id}`
   }
 
-  all(){
+  all() {
     return this.http.get<Lesson[]>(this.getUrl());
   }
 

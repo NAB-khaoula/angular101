@@ -11,6 +11,15 @@ export class AppComponent {
     { path: '/home', icon: 'home', title: 'Home' },
     { path: '/courses', icon: 'view_list', title: 'Courses' },
   ];
-
+  childRoute = {
+    path: '/example/child',
+    icon: 'announcement',
+    title: 'Child Routes',
+  };
+  routeParams = {
+    path: 'example/routeParams',
+    icon: 'system_update_alt',
+    title: 'Route Params',
+  };
   constructor() {}
 }

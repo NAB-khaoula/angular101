@@ -23,6 +23,9 @@
         <mat-icon>{{link.icon}}</mat-icon>
         {{link.title}}
       </a>
+      <hr>
+      <a [routerLink]="childRoute.path" routerLinkActive="active" mat-button  class="nav-link"><mat-icon>{{childRoute.icon}}</mat-icon> {{childRoute.title}}</a>
+      <a [routerLink]="routeParams.path" routerLinkActive="active" mat-button  class="nav-link"><mat-icon>{{routeParams.icon}}</mat-icon> {{routeParams.title}}</a>
     </nav>
   </mat-sidenav>
 

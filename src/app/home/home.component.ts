@@ -8,17 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   lessons$
-  courseLessons = []
-
   selectedCourseLesson: any = null;
   constructor(private lessonsService: LessonsService) {}
 
   ngOnInit() {
-    this.courseLessons = this.lessonsService.courseLessons;
-    this.lessons$ = this.lessonsService.lessons$
+    this.fetchLessons();
   }
 
   selectCourseLesson(courseLesson: any){
     this.selectedCourseLesson = courseLesson;
+  }
+  fetchLessons() {
+    this.lessons$ = this.lessonsService.all()
+
+    console.log('jbna lessons b3da', this.lessons$);
   }
 }

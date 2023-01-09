@@ -5,9 +5,9 @@
   <mat-card-content>
     <!-- LESSON LIST -->
     <mat-list>
-        <mat-list-item *ngFor="let courseLesson of courseLessons" (click)="selectCourseLesson(courseLesson)">
+        <!-- <mat-list-item *ngFor="let courseLesson of lessons$" (click)="selectCourseLesson(courseLesson)">
             <h3 matLine>{{courseLesson.title}}</h3>
-        </mat-list-item>
+        </mat-list-item> -->
     </mat-list>
     <hr>
     <p *ngIf="selectedCourseLesson">{{selectedCourseLesson | json }}</p>

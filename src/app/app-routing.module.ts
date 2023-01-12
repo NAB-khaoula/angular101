@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CoursesComponent } from './courses/courses.component';
 import { HomeComponent } from './home/home.component';
+import { ProtectedRouteComponent } from './common-techniques/protected-route/protected-route.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -33,6 +34,9 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    declarations: [
+      ProtectedRouteComponent
+    ]
 })
 export class AppRoutingModule { }

@@ -27,6 +27,7 @@ const routes: Routes = [
       },
       { path: 'routeParams', component: RouteParamsComponent },
       { path: 'routeParams/:id', component: RouteParamsComponent },
+      {path: 'protectedRoute', component: ProtectedRouteComponent},
     ],
   },
   { path: '**', redirectTo: '/home' },

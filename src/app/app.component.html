@@ -26,6 +26,7 @@
       <hr>
       <a [routerLink]="childRoute.path" routerLinkActive="active" mat-button  class="nav-link"><mat-icon>{{childRoute.icon}}</mat-icon> {{childRoute.title}}</a>
       <a [routerLink]="routeParams.path" routerLinkActive="active" mat-button  class="nav-link"><mat-icon>{{routeParams.icon}}</mat-icon> {{routeParams.title}}</a>
+      <a [routerLink]="protectedRoute.path" routerLinkActive="active" mat-button  class="nav-link"><mat-icon>{{protectedRoute.icon}}</mat-icon> {{protectedRoute.title}}</a>
     </nav>
   </mat-sidenav>
 

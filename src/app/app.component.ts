@@ -21,5 +21,10 @@ export class AppComponent {
     icon: 'system_update_alt',
     title: 'Route Params',
   };
+  protectedRoute = {
+    path: 'example/protectedRoute',
+    icon: 'vpn_key',
+    title : 'Protected Routes'
+  }
   constructor() {}
 }

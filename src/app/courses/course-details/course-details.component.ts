@@ -1,4 +1,4 @@
-import { Course } from './../../common/models/course';
+import { Course } from '../../common/interfaces/course.interface';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({

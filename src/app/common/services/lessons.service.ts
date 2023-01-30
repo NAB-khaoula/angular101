@@ -1,4 +1,4 @@
-import { Lesson } from './../models/lessons';
+import { Lesson } from '../interfaces/lessons.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from } from 'rxjs';

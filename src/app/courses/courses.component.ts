@@ -1,6 +1,6 @@
 import { CoursesService } from '../common/services/courses.service';
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../common/models/course';
+import { Course } from '../common/interfaces/course.interface';
 import { Observable } from 'rxjs';
 
 const emptyCourse: Course = {

@@ -1,5 +1,5 @@
 import { LessonsService } from './../../common/services/lessons.service';
-import { Lesson } from './../../common/models/lessons';
+import { Lesson } from '../../common/interfaces/lessons.interface';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

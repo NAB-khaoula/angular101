@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Course } from './../models/course';
+import { Course } from '../interfaces/course.interface';
 import { Injectable } from '@angular/core';
 
 
@@ -33,7 +33,7 @@ export class CoursesService {
   delete(course) {
     return this.http.delete(this.getUrlWithID(course.id));
   }
-  
+
   private getUrl() {
     return `${BASE_URL}/${this.model}`;
   }

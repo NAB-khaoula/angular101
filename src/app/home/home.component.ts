@@ -1,4 +1,4 @@
-import { Lesson } from './../common/models/lessons';
+import { Lesson } from '../common/interfaces/lessons.interface';
 import { Observable } from 'rxjs';
 import { LessonsService } from './../common/services/lessons.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   lessons$: Observable<Lesson[]>
   selectedCourseLesson: any = null;
-  constructor(private lessonsService: LessonsService) {}
+  constructor(private lessonsService: LessonsService) {
+  }
 
   ngOnInit() {
     this.fetchLessons();

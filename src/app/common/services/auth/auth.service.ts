@@ -1,13 +1,37 @@
+import { UserInfo } from './../../interfaces/auth.interface';
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+const AUTHENTICATION_KEY = 'authenticated';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  private isAuthenticated = new BehaviorSubject(this.getIsAuthenticated() || false);
+  isAuthenticated$ = this.isAuthenticated.asObservable();
 
-  private isAuthenticated = new BehaviorSubject(false);
+  constructor(private router: Router) {}
 
-  constructor() { }
+  login(userInfo: UserInfo) {
+    this.setIsAuthenticated(true);
+    this.isAuthenticated.next(true);
+    this.router.navigateByUrl('/courses');
+  }
 
+  logout() {
+    this.setIsAuthenticated(false);
+    this.isAuthenticated.next(false);
+    this.router.navigateByUrl('/home');
+  }
+
+  private getIsAuthenticated() {
+    console.log(localStorage.getItem(AUTHENTICATION_KEY));
+    return localStorage.getItem(AUTHENTICATION_KEY);
+  }
+
+  private setIsAuthenticated(isAuthenticated: boolean) {
+    localStorage.setItem(AUTHENTICATION_KEY, JSON.stringify(isAuthenticated));
+  }
 }

@@ -11,26 +11,35 @@
     </span>
   </span>
   <span class="spacer"></span>
-  <button class="login" mat-mini-fab>
+  <button  *ngIf="!(isAuthenticated$ | async)"
+    (click)="login()" class="login" mat-mini-fab>
     <mat-icon>person</mat-icon>
+  </button>
+  <button
+  *ngIf="isAuthenticated$ | async"
+    (click)="logout()" class="login" mat-mini-fab #logout>
+    <mat-icon>person</mat-icon>
+    kjfsdhksah
   </button>
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" opened class="app-sidenav">
-    <nav>
+    <nav *ngIf="isAuthenticated$ | async">
       <a [routerLink]="link.path" routerLinkActive="active" mat-button class="nav-link" *ngFor="let link of links">
         <mat-icon>{{link.icon}}</mat-icon>
         {{link.title}}
       </a>
       <hr>
-      <a [routerLink]="childRoute.path" routerLinkActive="active" mat-button  class="nav-link"><mat-icon>{{childRoute.icon}}</mat-icon> {{childRoute.title}}</a>
-      <a [routerLink]="routeParams.path" routerLinkActive="active" mat-button  class="nav-link"><mat-icon>{{routeParams.icon}}</mat-icon> {{routeParams.title}}</a>
-      <a [routerLink]="protectedRoute.path" routerLinkActive="active" mat-button  class="nav-link"><mat-icon>{{protectedRoute.icon}}</mat-icon> {{protectedRoute.title}}</a>
+      <a [routerLink]="link.path" routerLinkActive="active" mat-button class="nav-link" *ngFor="let link of examples">
+        <mat-icon>{{link.icon}}</mat-icon>
+        {{link.title}}
+      </a>
+      <button (click)="something()">Something</button>
     </nav>
   </mat-sidenav>
 
-  <div class="container">
+  <div class="container" *ngIf="isAuthenticated$ | async">
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>

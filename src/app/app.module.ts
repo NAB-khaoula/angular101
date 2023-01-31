@@ -16,6 +16,7 @@ import { CoursesListComponent } from './courses/courses-list/courses-list.compon
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
 import { CommonTechniquesComponent } from './common-techniques/common-techniques.component';
 import { RouteParamsComponent } from './common-techniques/route-params/route-params.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { RouteParamsComponent } from './common-techniques/route-params/route-par
     AboutVacationComponent,
     AboutPayrollComponent,
     CommonTechniquesComponent,
-    RouteParamsComponent
+    RouteParamsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

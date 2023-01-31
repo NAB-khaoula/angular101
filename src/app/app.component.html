@@ -11,15 +11,9 @@
     </span>
   </span>
   <span class="spacer"></span>
-  <button  *ngIf="!(isAuthenticated$ | async)"
-    (click)="login()" class="login" mat-mini-fab>
-    <mat-icon>person</mat-icon>
-  </button>
   <button
-  *ngIf="isAuthenticated$ | async"
-    (click)="logout()" class="login" mat-mini-fab #logout>
+    (click)="logout()" class="login" mat-mini-fab >
     <mat-icon>person</mat-icon>
-    kjfsdhksah
   </button>
 </mat-toolbar>
 
@@ -39,7 +33,7 @@
     </nav>
   </mat-sidenav>
 
-  <div class="container" *ngIf="isAuthenticated$ | async">
+  <div class="container">
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>

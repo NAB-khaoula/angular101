@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { RouteParamsComponent } from './common-techniques/route-params/route-params.component';
 import { AboutVacationComponent } from './common-techniques/about/about-vacation/about-vacation.component';
 import { AboutPayrollComponent } from './common-techniques/about/about-payroll/about-payroll.component';
@@ -13,6 +14,7 @@ import { ProtectedRouteComponent } from './common-techniques/protected-route/pro
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'courses', component: CoursesComponent },
+  {path: 'login', component: LoginComponent},
   {
     path: 'example',
     component: CommonTechniquesComponent,

@@ -27,8 +27,7 @@ export class AuthService {
   }
 
   private getIsAuthenticated() {
-    console.log(localStorage.getItem(AUTHENTICATION_KEY));
-    return localStorage.getItem(AUTHENTICATION_KEY);
+    return JSON.parse(localStorage.getItem(AUTHENTICATION_KEY));
   }
 
   private setIsAuthenticated(isAuthenticated: boolean) {

@@ -23,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { LazyModule } from './common-techniques/lazy-module/lazy-module.module';
 import { DynamicComponents } from './common-techniques/dynamic-components/dynamic-components.component';
 import { CustomInputComponent } from './common-techniques/custom-input/custom-input.component';
+import { CustomControlComponent } from './common-techniques/custom-input/custom-control/custom-control.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { CustomInputComponent } from './common-techniques/custom-input/custom-in
     SquareComponent,
     TriangleComponent,
     CustomInputComponent,
+    CustomControlComponent,
   ],
   imports: [
     BrowserModule,

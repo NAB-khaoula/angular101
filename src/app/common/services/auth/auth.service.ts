@@ -26,7 +26,7 @@ export class AuthService {
     this.router.navigateByUrl('/home');
   }
 
-  private getIsAuthenticated() {
+  getIsAuthenticated() {
     return JSON.parse(localStorage.getItem(AUTHENTICATION_KEY));
   }
 

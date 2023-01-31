@@ -1,3 +1,4 @@
+import { AuthGuard } from './common/guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { RouteParamsComponent } from './common-techniques/route-params/route-params.component';
 import { AboutVacationComponent } from './common-techniques/about/about-vacation/about-vacation.component';
@@ -13,8 +14,8 @@ import { ProtectedRouteComponent } from './common-techniques/protected-route/pro
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'courses', component: CoursesComponent },
-  {path: 'login', component: LoginComponent},
+  { path: 'courses', component: CoursesComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   {
     path: 'example',
     component: CommonTechniquesComponent,
@@ -23,13 +24,31 @@ const routes: Routes = [
         path: 'child',
         component: AboutComponent,
         children: [
-          { path: 'payroll', component: AboutPayrollComponent },
-          { path: 'vacation', component: AboutVacationComponent },
-        ],
+          {
+            path: 'payroll',
+            component: AboutPayrollComponent
+          },
+          {
+            path: 'vacation',
+            component: AboutVacationComponent
+          },
+        ], canActivate:[AuthGuard]
       },
-      { path: 'routeParams', component: RouteParamsComponent },
-      { path: 'routeParams/:id', component: RouteParamsComponent },
-      {path: 'protectedRoute', component: ProtectedRouteComponent},
+      {
+        path: 'routeParams',
+        component: RouteParamsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'routeParams/:id',
+        component: RouteParamsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'protectedRoute',
+        component: ProtectedRouteComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
   { path: '**', redirectTo: '/home' },

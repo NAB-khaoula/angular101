@@ -1,8 +1,8 @@
-<mat-card>
+<mat-card *ngIf="isAuthenticated">
   <mat-card-header>
     <mat-card-title> Course Outline </mat-card-title>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content >
     <!-- LESSON LIST -->
     <mat-list>
         <mat-list-item *ngFor="let lesson of lessons$ | async" (click)="selectCourseLesson(lesson)">
@@ -12,4 +12,15 @@
     <hr>
     <p *ngIf="selectedCourseLesson">{{selectedCourseLesson | json }}</p>
   </mat-card-content>
+  <mat-card-content >
+  </mat-card-content>
 </mat-card>
+<mat-card *ngIf="!isAuthenticated">
+    <mat-card-header>
+        <mat-card-title>{{"welcome to our website" | titlecase}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-login></app-login>
+    </mat-card-content>
+</mat-card>
+<h1> </h1>

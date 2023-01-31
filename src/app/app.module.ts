@@ -1,3 +1,6 @@
+import { TriangleComponent } from './common-techniques/dynamic-components/triangle/triangle.component';
+import { SquareComponent } from './common-techniques/dynamic-components/square/square.component';
+import { CircleComponent } from './common-techniques/dynamic-components/circle/circle.component';
 import { AboutPayrollComponent } from './common-techniques/about/about-payroll/about-payroll.component';
 import { AboutVacationComponent } from './common-techniques/about/about-vacation/about-vacation.component';
 import { AboutComponent } from './common-techniques/about/about.component';
@@ -17,6 +20,9 @@ import { CourseDetailsComponent } from './courses/course-details/course-details.
 import { CommonTechniquesComponent } from './common-techniques/common-techniques.component';
 import { RouteParamsComponent } from './common-techniques/route-params/route-params.component';
 import { LoginComponent } from './login/login.component';
+import { LazyModule } from './common-techniques/lazy-module/lazy-module.module';
+import { DynamicComponents } from './common-techniques/dynamic-components/dynamic-components.component';
+import { CustomInputComponent } from './common-techniques/custom-input/custom-input.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +35,12 @@ import { LoginComponent } from './login/login.component';
     AboutPayrollComponent,
     CommonTechniquesComponent,
     RouteParamsComponent,
-    LoginComponent
+    LoginComponent,
+    DynamicComponents,
+    CircleComponent,
+    SquareComponent,
+    TriangleComponent,
+    CustomInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +48,8 @@ import { LoginComponent } from './login/login.component';
     MaterialModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    LazyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

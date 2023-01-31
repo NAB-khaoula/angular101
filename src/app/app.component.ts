@@ -11,7 +11,7 @@ import { shareReplay } from 'rxjs/operators';
 })
 export class AppComponent {
   private subject = new BehaviorSubject(123);
-  isAuthenticated$ = this.authService.isAuthenticated$.pipe(shareReplay(1))
+  isAuthenticated$ = this.authService.isAuthenticated$.pipe(shareReplay(1));
   title = 'Angular 13 Fundamentals';
   links = [
     { path: '/home', icon: 'home', title: 'Home' },
@@ -33,12 +33,27 @@ export class AppComponent {
       icon: 'vpn_key',
       title: 'Protected Routes',
     },
+    {
+      path: 'example/lazyModule',
+      icon: 'open_in_browser',
+      title: 'Lazy Module',
+    },
+    {
+      path: 'example/dynamic-components',
+      icon: 'dynamic_feed',
+      title: 'Dynamic Components',
+    },
+    {
+      path: 'example/custom-input',
+      icon: 'dashboard_customize',
+      title: 'Custom Input',
+    },
   ];
   test: UserInfo = {
     email: 'email',
-    password: 'pass'
-  }
-  constructor(private authService: AuthService) { }
+    password: 'pass',
+  };
+  constructor(private authService: AuthService) {}
 
   // two new subscribers will get initial value => output: 123, 123
   something() {

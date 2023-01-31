@@ -1,3 +1,8 @@
+import { CustomInputComponent } from './common-techniques/custom-input/custom-input.component';
+import { DynamicComponents } from './common-techniques/dynamic-components/dynamic-components.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from './common/guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { RouteParamsComponent } from './common-techniques/route-params/route-params.component';
@@ -5,9 +10,6 @@ import { AboutVacationComponent } from './common-techniques/about/about-vacation
 import { AboutPayrollComponent } from './common-techniques/about/about-payroll/about-payroll.component';
 import { AboutComponent } from './common-techniques/about/about.component';
 import { CommonTechniquesComponent } from './common-techniques/common-techniques.component';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
 import { CoursesComponent } from './courses/courses.component';
 import { HomeComponent } from './home/home.component';
 import { ProtectedRouteComponent } from './common-techniques/protected-route/protected-route.component';
@@ -26,13 +28,14 @@ const routes: Routes = [
         children: [
           {
             path: 'payroll',
-            component: AboutPayrollComponent
+            component: AboutPayrollComponent,
           },
           {
             path: 'vacation',
-            component: AboutVacationComponent
+            component: AboutVacationComponent,
           },
-        ], canActivate:[AuthGuard]
+        ],
+        canActivate: [AuthGuard],
       },
       {
         path: 'routeParams',
@@ -49,6 +52,23 @@ const routes: Routes = [
         component: ProtectedRouteComponent,
         canActivate: [AuthGuard],
       },
+      {
+        path: 'lazyModule',
+        loadChildren: () =>
+          import('./common-techniques/lazy-module/lazy-module.module').then(
+            (m) => m.LazyModule
+          ),
+      },
+      {
+        path: 'dynamic-components',
+        component: DynamicComponents,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'custom-input',
+        component: CustomInputComponent,
+        canActivate: [AuthGuard]
+      }
     ],
   },
   { path: '**', redirectTo: '/home' },

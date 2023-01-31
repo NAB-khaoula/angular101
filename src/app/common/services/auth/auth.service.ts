@@ -17,7 +17,7 @@ export class AuthService {
   login(userInfo: UserInfo) {
     this.setIsAuthenticated(true);
     this.isAuthenticated.next(true);
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/courses');
   }
 
   logout() {
@@ -26,7 +26,7 @@ export class AuthService {
     this.router.navigateByUrl('/home');
   }
 
-  getIsAuthenticated() {
+  private getIsAuthenticated() {
     return JSON.parse(localStorage.getItem(AUTHENTICATION_KEY));
   }
 

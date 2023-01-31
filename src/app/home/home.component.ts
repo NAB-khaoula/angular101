@@ -12,13 +12,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   lessons$: Observable<Lesson[]>
   selectedCourseLesson: any = null;
-  isAuthenticated: any;
+  isAuthenticated$: Observable<boolean>;
   constructor(private lessonsService: LessonsService, private authService: AuthService) {
   }
 
   ngOnInit() {
     this.fetchLessons();
-    this.isAuthenticated = this.authService.getIsAuthenticated();
+    this.isAuthenticated$ = this.authService.isAuthenticated$;
   }
 
   selectCourseLesson(courseLesson: any){
